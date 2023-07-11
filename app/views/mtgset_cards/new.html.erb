@@ -1,0 +1,21 @@
+<%= form_with model: [@mtgset, @card], url: "/mtgsets/#{@mtgset.id}/cards", method: :post, local: true do |form| %>
+<%= form.label :name %>
+<%= form.text_field :name %>
+
+<%= form.label :type_id %>
+<%= form.text_field :type_id %>
+
+<%= form.label :color_id %>
+<%= form.text_field :color_id %>
+
+<%= form.label :rarity %>
+<%= form.text_field :rarity %>
+
+<%= form.label :set_number %>
+<%= form.number_field :set_number %>
+
+<%= form.label :format_legality %>
+<%= form.check_box :format_legality %>
+
+<%= form.submit "Create Card" %>
+<% end %>

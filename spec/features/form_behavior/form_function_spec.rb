@@ -101,14 +101,21 @@ RSpec.describe "navigational link presence" do
   describe "As a visitor" do
     describe "When I visit a Parent Children Index page" do
       it "Then I see a link to add a new adoptable child for that parent Create Child" do
+        visit "/mtgsets/#{@arabian_nights.id}/cards"
 
+        expect(page).to have_link("Add Card")
       end
     end
   end
 
   describe "When I click the link" do
     it "I am taken to /parents/:parent_id/child_table_name/new where I see a form to add a new adoptable child" do
+      visit "/mtgsets/#{@arabian_nights.id}/cards"
 
+      click_link "Add Card"
+
+      expect(current_path).to eq("/mtgsets/#{@arabian_nights.id}/cards/new")
+      expect(page).to have_selector("Form")
     end
   end
 
@@ -122,78 +129,78 @@ RSpec.describe "navigational link presence" do
     end
   end
 
-  # [ ] done
-  # User Story 14, Child Update
-  describe "As a visitor" do
-    describe "When I visit a Child Show page" do
-      it "Then I see a link to update that Child Update Child" do
-      end
-    end
-  end
+#   # [ ] done
+#   # User Story 14, Child Update
+#   describe "As a visitor" do
+#     describe "When I visit a Child Show page" do
+#       it "Then I see a link to update that Child Update Child" do
+#       end
+#     end
+#   end
 
-  describe "When I click the link"
-    it "I am taken to /child_table_name/:id/edit where I see a form to edit the child's attributes:" do
-    end
-  end
+#   describe "When I click the link"
+#     it "I am taken to /child_table_name/:id/edit where I see a form to edit the child's attributes:" do
+#     end
+#   end
 
-  describe "When I click the button to submit the form Update Child" do
-    describe "Then a PATCH request is sent to /child_table_name/:id, the child's data is updated," do
-      it "and I am redirected to the Child Show page where I see the Child's updated information" do
+#   describe "When I click the button to submit the form Update Child" do
+#     describe "Then a PATCH request is sent to /child_table_name/:id, the child's data is updated," do
+#       it "and I am redirected to the Child Show page where I see the Child's updated information" do
 
-      end
-    end
-  end
+#       end
+#     end
+#   end
 
-  # [ ] done
-  # User Story 15, Child Index only shows `true` Records
-  describe "As a visitor" do
-    describe "When I visit the child index" do
-      it "Then I only see records where the boolean column is true" do
+#   # [ ] done
+#   # User Story 15, Child Index only shows `true` Records
+#   describe "As a visitor" do
+#     describe "When I visit the child index" do
+#       it "Then I only see records where the boolean column is true" do
 
-      end
-    end
-  end
+#       end
+#     end
+#   end
 
-  # [ ] done
-  # User Story 16, Sort Parent's Children in Alphabetical Order by name
-  describe "As a visitor" do
-    describe "When I visit the Parent's children Index Page" do
-      describe "Then I see a link to sort children in alphabetical order" do
-        describe "When I click on the link" do
-          it "I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order" do
+#   # [ ] done
+#   # User Story 16, Sort Parent's Children in Alphabetical Order by name
+#   describe "As a visitor" do
+#     describe "When I visit the Parent's children Index Page" do
+#       describe "Then I see a link to sort children in alphabetical order" do
+#         describe "When I click on the link" do
+#           it "I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order" do
 
-          end
-        end
-      end
-    end
-  end
+#           end
+#         end
+#       end
+#     end
+#   end
 
-  # [ ] done
-  # User Story 17, Parent Update From Parent Index Page
-  describe "As a visitor" do
-    describe "When I visit the parent index page" do
-      describe "Next to every parent, I see a link to edit that parent's info" do
-        describe "When I click the link" do
-          it "I should be taken to that parent's edit page where I can update its information just like in User Story 12" do
+#   # [ ] done
+#   # User Story 17, Parent Update From Parent Index Page
+#   describe "As a visitor" do
+#     describe "When I visit the parent index page" do
+#       describe "Next to every parent, I see a link to edit that parent's info" do
+#         describe "When I click the link" do
+#           it "I should be taken to that parent's edit page where I can update its information just like in User Story 12" do
 
-          end
-        end
-      end
-    end
-  end
+#           end
+#         end
+#       end
+#     end
+#   end
 
 
-  # [ ] done
-  # User Story 18, Child Update From Childs Index Page
-  describe "As a visitor"
-    describe "When I visit the `child_table_name` index page or a parent child_table_name index page" do
-      describe "Next to every child, I see a link to edit that child's info" do
-        describe "When I click the link" do
-          it "I should be taken to that child_table_name edit page where I can update its information just like in User Story 14" do
+#   # [ ] done
+#   # User Story 18, Child Update From Childs Index Page
+#   describe "As a visitor"
+#     describe "When I visit the `child_table_name` index page or a parent child_table_name index page" do
+#       describe "Next to every child, I see a link to edit that child's info" do
+#         describe "When I click the link" do
+#           it "I should be taken to that child_table_name edit page where I can update its information just like in User Story 14" do
 
-          end
-        end
-      end
-    end
-  end
+#           end
+#         end
+#       end
+#     end
+#   end
 end

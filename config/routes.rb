@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   #---------------Cards Index-------------
   get '/cards', to: "cards#index"
+  post '/mtgsets/:id/cards', to: "mtgset_cards#create"
+  get '/mtgsets/:id/cards/new', to: "mtgset_cards#new"
   get '/mtgsets/:id/cards/:id', to: "cards#show"
 
   #---------------Parent Child-------------
