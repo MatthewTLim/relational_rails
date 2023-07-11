@@ -1,0 +1,12 @@
+<a href="/mtgsets">Set Index</a>
+<a href="/cards">Cards Index</a>
+<h1>All Cards</h1>
+<% @cards.each do |card| %>
+  <p>Name: <%= card.name %></p>
+  <p>Type: <%= card.type_id %></p>
+  <p>Color: <%= card.color_id %></p>
+  <p>Rarity: <%= card.rarity %></p>
+  <p>Set Number: <%= card.set_number %></p>
+  <p>Pauper Legal: <%= card.format_legality %></p>
+  <br>
+<% end %>
