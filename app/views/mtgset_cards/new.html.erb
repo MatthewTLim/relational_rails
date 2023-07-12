@@ -1,4 +1,4 @@
-<%= form_with model: [@mtgset, @card], url: "/mtgsets/#{@mtgset.id}/cards", method: :post, local: true do |form| %>
+<%= form_with url: "/mtgsets/#{@mtgset.id}/cards", method: :post, local: true do |form| %>
 <%= form.label :name %>
 <%= form.text_field :name %>
 

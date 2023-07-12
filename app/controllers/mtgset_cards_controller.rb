@@ -17,7 +17,7 @@ class MtgsetCardsController < ApplicationController
   end
 
   def mtgset_cards_params
-    params.permit(:name, :type_id, :color_id, :rarity, :set_number, :format_legality)
+    params(:card).permit(:name, :type_id, :color_id, :rarity, :set_number, :format_legality)
   end
 
 end
